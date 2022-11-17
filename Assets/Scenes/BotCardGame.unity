@@ -464,10 +464,12 @@ MonoBehaviour:
   netPlayerPrefab: {fileID: 3663717233273873108, guid: c521294134e952e4fba7fc3fbe0d2743, type: 3}
   P1: {fileID: 420342559}
   P2: {fileID: 1825299644}
-  restoreValue: 5
-  damageValue: 20
-  State: 1
-  NextState: 1
+  defaultPlayerStats:
+    MaxHealth: 100
+    RestoreValue: 5
+    DamageValue: 10
+  State: 2
+  NextState: 2
   gameOverPanel: {fileID: 2068850758}
   winnerText: {fileID: 2090298970}
   pingText: {fileID: 0}
@@ -1401,12 +1403,17 @@ MonoBehaviour:
   chosenCard: {fileID: 0}
   atkPosRef: {fileID: 2058070077}
   Health: 100
-  MaxHealt: 100
+  MaxHealth: 100
   nameText: {fileID: 786270579}
-  healtText: {fileID: 1174295885}
+  healthText: {fileID: 0}
   healthBar: {fileID: 1756518398}
   audioSource: {fileID: 502926392}
   damageClip: {fileID: 8300000, guid: e682aec3fd9a051428ad902455e1fa39, type: 3}
+  IsReady: 0
+  stats:
+    MaxHealth: 100
+    RestoreValue: 15
+    DamageValue: 20
 --- !u!1 &437467475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,12 +2620,17 @@ MonoBehaviour:
   chosenCard: {fileID: 0}
   atkPosRef: {fileID: 0}
   Health: 100
-  MaxHealt: 100
+  MaxHealth: 0
   nameText: {fileID: 0}
-  healtText: {fileID: 0}
+  healthText: {fileID: 0}
   healthBar: {fileID: 0}
   audioSource: {fileID: 502926392}
   damageClip: {fileID: 8300000, guid: e682aec3fd9a051428ad902455e1fa39, type: 3}
+  IsReady: 0
+  stats:
+    MaxHealth: 100
+    RestoreValue: 5
+    DamageValue: 10
 --- !u!1 &754841798
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,14 +4703,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0357a49b3fdfdc48b1550e696b1f0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReady: 0
   player: {fileID: 1825299644}
   gameManager: {fileID: 218434028}
   stats:
-    Name: 
-    ChoosingInterval: 0
-    MaxHealth: 0
-    RestoreValue: 0
-    DamageValue: 0
+    Name: Default
+    ChoosingInterval: 0.2
+    MaxHealth: 100
+    RestoreValue: 5
+    DamageValue: 10
 --- !u!4 &1817994378
 Transform:
   m_ObjectHideFlags: 0
@@ -4727,7 +4740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bot: {fileID: 1817994377}
-  selectedDifficulty: 0
+  selectedDifficulty: 3
   botDifficulties:
   - Name: Easy
     ChoosingInterval: 0.5
@@ -4749,6 +4762,8 @@ MonoBehaviour:
     MaxHealth: 200
     RestoreValue: 15
     DamageValue: 20
+  enableRemotConfig: 1
+  DifficultyKey: Difficulty
 --- !u!1 &1825299642
 GameObject:
   m_ObjectHideFlags: 0
@@ -4806,12 +4821,17 @@ MonoBehaviour:
   chosenCard: {fileID: 0}
   atkPosRef: {fileID: 1030981360}
   Health: 100
-  MaxHealt: 100
+  MaxHealth: 100
   nameText: {fileID: 1054705960}
-  healtText: {fileID: 571648264}
+  healthText: {fileID: 571648264}
   healthBar: {fileID: 325180951}
   audioSource: {fileID: 502926392}
   damageClip: {fileID: 8300000, guid: e682aec3fd9a051428ad902455e1fa39, type: 3}
+  IsReady: 0
+  stats:
+    MaxHealth: 100
+    RestoreValue: 15
+    DamageValue: 20
 --- !u!1 &1853221511
 GameObject:
   m_ObjectHideFlags: 0

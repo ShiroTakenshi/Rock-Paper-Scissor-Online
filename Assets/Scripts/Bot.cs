@@ -4,21 +4,37 @@ using UnityEngine;
 
 public class Bot : MonoBehaviour
 {
+    public bool IsReady;
     public CardPlayer player;
     public CardGameManager gameManager;
     public BotStats stats;
+
     private float timer = 0;
     int lastSelected;
     Card[] cards;
 
-    public bool IsReady;
-    public void SetStats(BotStats newStats)
+    
+
+    public void SetStats(BotStats newStats, bool RestoreFullHealth = false)
     {
         this.stats = newStats;
+
+        var newPlayerStats = new PlayerStats
+        {
+
+            MaxHealth = this.stats.MaxHealth,
+            RestoreValue = this.stats.RestoreValue,
+            DamageValue = this.stats.DamageValue,
+        };
+        player.SetStats(newPlayerStats, RestoreFullHealth: true);
     }
-    private void Start()
+    IEnumerator Start()
     {
         cards = player.GetComponentsInChildren<Card>();
+
+        yield return new WaitUntil(()=>player.IsReady);
+        SetStats(this.stats);
+        this.IsReady = true;
     }
     private void Update()
     {
