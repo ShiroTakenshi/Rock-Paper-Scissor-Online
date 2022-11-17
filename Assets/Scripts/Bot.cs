@@ -11,6 +11,7 @@ public class Bot : MonoBehaviour
     int lastSelected;
     Card[] cards;
 
+    public bool IsReady;
     public void SetStats(BotStats newStats)
     {
         this.stats = newStats;
